@@ -1,7 +1,11 @@
-const express = require('express');
-const { createProxyMiddleware } = require('http-proxy-middleware');
+const express = require('express')
+const { createProxyMiddleware } = require('http-proxy-middleware')
 
-const app = express();
+const cors = require('cors')
+const app = express()
+
+app.use(cors())
+
 app.use(
   '*',
   createProxyMiddleware({
@@ -9,4 +13,4 @@ app.use(
     changeOrigin: true,
   })
 )
-app.listen(3000);
+app.listen(3000)
